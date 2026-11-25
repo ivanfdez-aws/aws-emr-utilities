@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: MIT-0
 # Build the two archives the jobs expect and upload them to S3.
 # Run it in AWS CloudShell or on any Amazon Linux 2023 x86_64 host: the native libraries must match the
-# EMR Serverless runtime (Python 3.11, x86_64).
+# EMR Serverless runtime (emr-spark-8.2.0: Python 3.11, x86_64).
 #
 # Usage: S3_BUCKET=s3://<your-bucket> bash build_venv.sh
 set -euo pipefail

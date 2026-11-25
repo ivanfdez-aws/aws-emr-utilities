@@ -2,19 +2,19 @@
  "label": "spark-sf1000-32",
  "state": "SUCCESS",
  "details": "",
- "duration_s": 6345,
+ "duration_s": 6403,
  "billed": {
-  "vCPUHour": 59.692,
-  "memoryGBHour": 240.532,
-  "storageGBHour": 2527.5
+  "vCPUHour": 60.357,
+  "memoryGBHour": 243.206,
+  "storageGBHour": 2555.95
  },
  "queries": [
   {
    "q": 1,
    "engine": "spark",
-   "best": 21.94,
+   "best": 23.998,
    "all": [
-    21.94
+    23.998
    ],
    "rows": 100,
    "error": null
@@ -22,9 +22,9 @@
   {
    "q": 2,
    "engine": "spark",
-   "best": 47.494,
+   "best": 47.89,
    "all": [
-    47.494
+    47.89
    ],
    "rows": 2513,
    "error": null
@@ -32,9 +32,9 @@
   {
    "q": 3,
    "engine": "spark",
-   "best": 27.958,
+   "best": 30.559,
    "all": [
-    27.958
+    30.559
    ],
    "rows": 100,
    "error": null
@@ -42,9 +42,9 @@
   {
    "q": 4,
    "engine": "spark",
-   "best": 190.667,
+   "best": 191.486,
    "all": [
-    190.667
+    191.486
    ],
    "rows": 100,
    "error": null
@@ -52,9 +52,9 @@
   {
    "q": 5,
    "engine": "spark",
-   "best": 91.566,
+   "best": 100.763,
    "all": [
-    91.566
+    100.763
    ],
    "rows": 100,
    "error": null
@@ -62,9 +62,9 @@
   {
    "q": 6,
    "engine": "spark",
-   "best": 24.749,
+   "best": 23.354,
    "all": [
-    24.749
+    23.354
    ],
    "rows": 52,
    "error": null
@@ -72,9 +72,9 @@
   {
    "q": 7,
    "engine": "spark",
-   "best": 48.388,
+   "best": 54.618,
    "all": [
-    48.388
+    54.618
    ],
    "rows": 100,
    "error": null
@@ -82,9 +82,9 @@
   {
    "q": 8,
    "engine": "spark",
-   "best": 27.711,
+   "best": 29.07,
    "all": [
-    27.711
+    29.07
    ],
    "rows": 11,
    "error": null
@@ -92,9 +92,9 @@
   {
    "q": 9,
    "engine": "spark",
-   "best": 35.268,
+   "best": 37.227,
    "all": [
-    35.268
+    37.227
    ],
    "rows": 1,
    "error": null
@@ -102,9 +102,9 @@
   {
    "q": 10,
    "engine": "spark",
-   "best": 35.988,
+   "best": 35.86,
    "all": [
-    35.988
+    35.86
    ],
    "rows": 100,
    "error": null
@@ -112,9 +112,9 @@
   {
    "q": 11,
    "engine": "spark",
-   "best": 106.203,
+   "best": 109.044,
    "all": [
-    106.203
+    109.044
    ],
    "rows": 100,
    "error": null
@@ -122,9 +122,9 @@
   {
    "q": 12,
    "engine": "spark",
-   "best": 13.345,
+   "best": 13.104,
    "all": [
-    13.345
+    13.104
    ],
    "rows": 100,
    "error": null
@@ -132,9 +132,9 @@
   {
    "q": 13,
    "engine": "spark",
-   "best": 57.757,
+   "best": 52.445,
    "all": [
-    57.757
+    52.445
    ],
    "rows": 1,
    "error": null
@@ -142,9 +142,9 @@
   {
    "q": 14,
    "engine": "spark",
-   "best": 172.054,
+   "best": 165.325,
    "all": [
-    172.054
+    165.325
    ],
    "rows": 100,
    "error": null
@@ -152,9 +152,9 @@
   {
    "q": 15,
    "engine": "spark",
-   "best": 25.604,
+   "best": 24.466,
    "all": [
-    25.604
+    24.466
    ],
    "rows": 100,
    "error": null
@@ -162,9 +162,9 @@
   {
    "q": 16,
    "engine": "spark",
-   "best": 61.393,
+   "best": 57.066,
    "all": [
-    61.393
+    57.066
    ],
    "rows": 1,
    "error": null
@@ -172,9 +172,9 @@
   {
    "q": 17,
    "engine": "spark",
-   "best": 70.483,
+   "best": 69.442,
    "all": [
-    70.483
+    69.442
    ],
    "rows": 100,
    "error": null
@@ -182,9 +182,9 @@
   {
    "q": 18,
    "engine": "spark",
-   "best": 49.264,
+   "best": 61.191,
    "all": [
-    49.264
+    61.191
    ],
    "rows": 100,
    "error": null
@@ -192,9 +192,9 @@
   {
    "q": 19,
    "engine": "spark",
-   "best": 34.88,
+   "best": 36.03,
    "all": [
-    34.88
+    36.03
    ],
    "rows": 100,
    "error": null
@@ -202,9 +202,9 @@
   {
    "q": 20,
    "engine": "spark",
-   "best": 23.646,
+   "best": 31.831,
    "all": [
-    23.646
+    31.831
    ],
    "rows": 100,
    "error": null
@@ -212,9 +212,9 @@
   {
    "q": 21,
    "engine": "spark",
-   "best": 7.205,
+   "best": 7.883,
    "all": [
-    7.205
+    7.883
    ],
    "rows": 100,
    "error": null
@@ -222,9 +222,9 @@
   {
    "q": 22,
    "engine": "spark",
-   "best": 16.309,
+   "best": 17.791,
    "all": [
-    16.309
+    17.791
    ],
    "rows": 100,
    "error": null
@@ -232,9 +232,9 @@
   {
    "q": 23,
    "engine": "spark",
-   "best": 790.622,
+   "best": 788.005,
    "all": [
-    790.622
+    788.005
    ],
    "rows": 100,
    "error": null
@@ -242,9 +242,9 @@
   {
    "q": 24,
    "engine": "spark",
-   "best": 72.448,
+   "best": 70.05,
    "all": [
-    72.448
+    70.05
    ],
    "rows": 403,
    "error": null
@@ -252,9 +252,9 @@
   {
    "q": 25,
    "engine": "spark",
-   "best": 70.986,
+   "best": 74.7,
    "all": [
-    70.986
+    74.7
    ],
    "rows": 100,
    "error": null
@@ -262,9 +262,9 @@
   {
    "q": 26,
    "engine": "spark",
-   "best": 41.128,
+   "best": 53.879,
    "all": [
-    41.128
+    53.879
    ],
    "rows": 100,
    "error": null
@@ -272,9 +272,9 @@
   {
    "q": 27,
    "engine": "spark",
-   "best": 138.925,
+   "best": 161.429,
    "all": [
-    138.925
+    161.429
    ],
    "rows": 100,
    "error": null
@@ -282,9 +282,9 @@
   {
    "q": 28,
    "engine": "spark",
-   "best": 63.883,
+   "best": 65.713,
    "all": [
-    63.883
+    65.713
    ],
    "rows": 1,
    "error": null
@@ -292,9 +292,9 @@
   {
    "q": 29,
    "engine": "spark",
-   "best": 84.662,
+   "best": 85.038,
    "all": [
-    84.662
+    85.038
    ],
    "rows": 100,
    "error": null
@@ -302,9 +302,9 @@
   {
    "q": 30,
    "engine": "spark",
-   "best": 14.234,
+   "best": 11.972,
    "all": [
-    14.234
+    11.972
    ],
    "rows": 100,
    "error": null
@@ -312,9 +312,9 @@
   {
    "q": 31,
    "engine": "spark",
-   "best": 111.01,
+   "best": 132.079,
    "all": [
-    111.01
+    132.079
    ],
    "rows": 297,
    "error": null
@@ -322,9 +322,9 @@
   {
    "q": 32,
    "engine": "spark",
-   "best": 47.931,
+   "best": 61.867,
    "all": [
-    47.931
+    61.867
    ],
    "rows": 1,
    "error": null
@@ -332,9 +332,9 @@
   {
    "q": 33,
    "engine": "spark",
-   "best": 71.016,
+   "best": 89.372,
    "all": [
-    71.016
+    89.372
    ],
    "rows": 100,
    "error": null
@@ -342,9 +342,9 @@
   {
    "q": 34,
    "engine": "spark",
-   "best": 28.059,
+   "best": 26.109,
    "all": [
-    28.059
+    26.109
    ],
    "rows": 24231,
    "error": null
@@ -352,9 +352,9 @@
   {
    "q": 35,
    "engine": "spark",
-   "best": 38.068,
+   "best": 36.582,
    "all": [
-    38.068
+    36.582
    ],
    "rows": 100,
    "error": null
@@ -362,9 +362,9 @@
   {
    "q": 36,
    "engine": "spark",
-   "best": 40.324,
+   "best": 54.517,
    "all": [
-    40.324
+    54.517
    ],
    "rows": 100,
    "error": null
@@ -372,9 +372,9 @@
   {
    "q": 37,
    "engine": "spark",
-   "best": 19.129,
+   "best": 20.839,
    "all": [
-    19.129
+    20.839
    ],
    "rows": 4,
    "error": null
@@ -382,9 +382,9 @@
   {
    "q": 38,
    "engine": "spark",
-   "best": 47.237,
+   "best": 43.812,
    "all": [
-    47.237
+    43.812
    ],
    "rows": 1,
    "error": null
@@ -392,9 +392,9 @@
   {
    "q": 39,
    "engine": "spark",
-   "best": 16.684,
+   "best": 17.11,
    "all": [
-    16.684
+    17.11
    ],
    "rows": 14796,
    "error": null
@@ -402,9 +402,9 @@
   {
    "q": 40,
    "engine": "spark",
-   "best": 32.782,
+   "best": 33.609,
    "all": [
-    32.782
+    33.609
    ],
    "rows": 100,
    "error": null
@@ -412,9 +412,9 @@
   {
    "q": 41,
    "engine": "spark",
-   "best": 1.607,
+   "best": 1.7,
    "all": [
-    1.607
+    1.7
    ],
    "rows": 100,
    "error": null
@@ -422,9 +422,9 @@
   {
    "q": 42,
    "engine": "spark",
-   "best": 26.122,
+   "best": 36.213,
    "all": [
-    26.122
+    36.213
    ],
    "rows": 12,
    "error": null
@@ -432,9 +432,9 @@
   {
    "q": 43,
    "engine": "spark",
-   "best": 24.537,
+   "best": 24.813,
    "all": [
-    24.537
+    24.813
    ],
    "rows": 100,
    "error": null
@@ -442,9 +442,9 @@
   {
    "q": 44,
    "engine": "spark",
-   "best": 28.187,
+   "best": 25.133,
    "all": [
-    28.187
+    25.133
    ],
    "rows": 10,
    "error": null
@@ -452,9 +452,9 @@
   {
    "q": 45,
    "engine": "spark",
-   "best": 15.45,
+   "best": 16.228,
    "all": [
-    15.45
+    16.228
    ],
    "rows": 100,
    "error": null
@@ -462,9 +462,9 @@
   {
    "q": 46,
    "engine": "spark",
-   "best": 49.03,
+   "best": 46.779,
    "all": [
-    49.03
+    46.779
    ],
    "rows": 100,
    "error": null
@@ -472,9 +472,9 @@
   {
    "q": 47,
    "engine": "spark",
-   "best": 66.173,
+   "best": 45.615,
    "all": [
-    66.173
+    45.615
    ],
    "rows": 100,
    "error": null
@@ -482,9 +482,9 @@
   {
    "q": 48,
    "engine": "spark",
-   "best": 63.643,
+   "best": 57.21,
    "all": [
-    63.643
+    57.21
    ],
    "rows": 1,
    "error": null
@@ -492,9 +492,9 @@
   {
    "q": 49,
    "engine": "spark",
-   "best": 95.924,
+   "best": 97.289,
    "all": [
-    95.924
+    97.289
    ],
    "rows": 100,
    "error": null
@@ -502,9 +502,9 @@
   {
    "q": 50,
    "engine": "spark",
-   "best": 116.601,
+   "best": 95.028,
    "all": [
-    116.601
+    95.028
    ],
    "rows": 100,
    "error": null
@@ -512,9 +512,9 @@
   {
    "q": 51,
    "engine": "spark",
-   "best": 70.164,
+   "best": 68.597,
    "all": [
-    70.164
+    68.597
    ],
    "rows": 100,
    "error": null
@@ -522,9 +522,9 @@
   {
    "q": 52,
    "engine": "spark",
-   "best": 26.666,
+   "best": 36.134,
    "all": [
-    26.666
+    36.134
    ],
    "rows": 100,
    "error": null
@@ -532,9 +532,9 @@
   {
    "q": 53,
    "engine": "spark",
-   "best": 30.153,
+   "best": 30.55,
    "all": [
-    30.153
+    30.55
    ],
    "rows": 100,
    "error": null
@@ -542,9 +542,9 @@
   {
    "q": 54,
    "engine": "spark",
-   "best": 55.261,
+   "best": 64.867,
    "all": [
-    55.261
+    64.867
    ],
    "rows": 100,
    "error": null
@@ -552,9 +552,9 @@
   {
    "q": 55,
    "engine": "spark",
-   "best": 25.971,
+   "best": 36.29,
    "all": [
-    25.971
+    36.29
    ],
    "rows": 100,
    "error": null
@@ -562,9 +562,9 @@
   {
    "q": 56,
    "engine": "spark",
-   "best": 64.902,
+   "best": 84.993,
    "all": [
-    64.902
+    84.993
    ],
    "rows": 100,
    "error": null
@@ -572,9 +572,9 @@
   {
    "q": 57,
    "engine": "spark",
-   "best": 32.02,
+   "best": 31.761,
    "all": [
-    32.02
+    31.761
    ],
    "rows": 100,
    "error": null
@@ -582,9 +582,9 @@
   {
    "q": 58,
    "engine": "spark",
-   "best": 58.055,
+   "best": 73.808,
    "all": [
-    58.055
+    73.808
    ],
    "rows": 4,
    "error": null
@@ -592,9 +592,9 @@
   {
    "q": 59,
    "engine": "spark",
-   "best": 76.203,
+   "best": 69.947,
    "all": [
-    76.203
+    69.947
    ],
    "rows": 100,
    "error": null
@@ -602,9 +602,9 @@
   {
    "q": 60,
    "engine": "spark",
-   "best": 67.413,
+   "best": 83.302,
    "all": [
-    67.413
+    83.302
    ],
    "rows": 100,
    "error": null
@@ -612,9 +612,9 @@
   {
    "q": 61,
    "engine": "spark",
-   "best": 66.083,
+   "best": 79.135,
    "all": [
-    66.083
+    79.135
    ],
    "rows": 1,
    "error": null
@@ -622,9 +622,9 @@
   {
    "q": 62,
    "engine": "spark",
-   "best": 12.459,
+   "best": 10.624,
    "all": [
-    12.459
+    10.624
    ],
    "rows": 100,
    "error": null
@@ -632,9 +632,9 @@
   {
    "q": 63,
    "engine": "spark",
-   "best": 29.636,
+   "best": 29.515,
    "all": [
-    29.636
+    29.515
    ],
    "rows": 100,
    "error": null
@@ -642,9 +642,9 @@
   {
    "q": 64,
    "engine": "spark",
-   "best": 151.547,
+   "best": 143.466,
    "all": [
-    151.547
+    143.466
    ],
    "rows": 11492,
    "error": null
@@ -652,9 +652,9 @@
   {
    "q": 65,
    "engine": "spark",
-   "best": 43.663,
+   "best": 41.291,
    "all": [
-    43.663
+    41.291
    ],
    "rows": 100,
    "error": null
@@ -662,9 +662,9 @@
   {
    "q": 66,
    "engine": "spark",
-   "best": 47.869,
+   "best": 51.558,
    "all": [
-    47.869
+    51.558
    ],
    "rows": 20,
    "error": null
@@ -672,9 +672,9 @@
   {
    "q": 67,
    "engine": "spark",
-   "best": 315.604,
+   "best": 230.556,
    "all": [
-    315.604
+    230.556
    ],
    "rows": 100,
    "error": null
@@ -682,9 +682,9 @@
   {
    "q": 68,
    "engine": "spark",
-   "best": 60.222,
+   "best": 66.888,
    "all": [
-    60.222
+    66.888
    ],
    "rows": 100,
    "error": null
@@ -692,9 +692,9 @@
   {
    "q": 69,
    "engine": "spark",
-   "best": 37.049,
+   "best": 36.367,
    "all": [
-    37.049
+    36.367
    ],
    "rows": 100,
    "error": null
@@ -702,9 +702,9 @@
   {
    "q": 70,
    "engine": "spark",
-   "best": 44.058,
+   "best": 47.855,
    "all": [
-    44.058
+    47.855
    ],
    "rows": 52,
    "error": null
@@ -712,9 +712,9 @@
   {
    "q": 71,
    "engine": "spark",
-   "best": 67.089,
+   "best": 78.921,
    "all": [
-    67.089
+    78.921
    ],
    "rows": 209234,
    "error": null
@@ -722,9 +722,9 @@
   {
    "q": 72,
    "engine": "spark",
-   "best": 76.153,
+   "best": 76.578,
    "all": [
-    76.153
+    76.578
    ],
    "rows": 100,
    "error": null
@@ -732,9 +732,9 @@
   {
    "q": 73,
    "engine": "spark",
-   "best": 27.162,
+   "best": 25.362,
    "all": [
-    27.162
+    25.362
    ],
    "rows": 589,
    "error": null
@@ -742,9 +742,9 @@
   {
    "q": 74,
    "engine": "spark",
-   "best": 79.88,
+   "best": 81.442,
    "all": [
-    79.88
+    81.442
    ],
    "rows": 100,
    "error": null
@@ -752,9 +752,9 @@
   {
    "q": 75,
    "engine": "spark",
-   "best": 194.922,
+   "best": 217.374,
    "all": [
-    194.922
+    217.374
    ],
    "rows": 30,
    "error": null
@@ -762,9 +762,9 @@
   {
    "q": 76,
    "engine": "spark",
-   "best": 68.426,
+   "best": 84.82,
    "all": [
-    68.426
+    84.82
    ],
    "rows": 100,
    "error": null
@@ -772,9 +772,9 @@
   {
    "q": 77,
    "engine": "spark",
-   "best": 78.167,
+   "best": 94.536,
    "all": [
-    78.167
+    94.536
    ],
    "rows": 100,
    "error": null
@@ -782,9 +782,9 @@
   {
    "q": 78,
    "engine": "spark",
-   "best": 196.198,
+   "best": 184.693,
    "all": [
-    196.198
+    184.693
    ],
    "rows": 100,
    "error": null
@@ -792,9 +792,9 @@
   {
    "q": 79,
    "engine": "spark",
-   "best": 47.803,
+   "best": 42.324,
    "all": [
-    47.803
+    42.324
    ],
    "rows": 100,
    "error": null
@@ -802,9 +802,9 @@
   {
    "q": 80,
    "engine": "spark",
-   "best": 113.266,
+   "best": 123.315,
    "all": [
-    113.266
+    123.315
    ],
    "rows": 100,
    "error": null
@@ -812,9 +812,9 @@
   {
    "q": 81,
    "engine": "spark",
-   "best": 14.339,
+   "best": 13.906,
    "all": [
-    14.339
+    13.906
    ],
    "rows": 100,
    "error": null
@@ -822,9 +822,9 @@
   {
    "q": 82,
    "engine": "spark",
-   "best": 16.609,
+   "best": 15.25,
    "all": [
-    16.609
+    15.25
    ],
    "rows": 24,
    "error": null
@@ -832,9 +832,9 @@
   {
    "q": 83,
    "engine": "spark",
-   "best": 12.281,
+   "best": 11.344,
    "all": [
-    12.281
+    11.344
    ],
    "rows": 100,
    "error": null
@@ -842,9 +842,9 @@
   {
    "q": 84,
    "engine": "spark",
-   "best": 8.536,
+   "best": 7.296,
    "all": [
-    8.536
+    7.296
    ],
    "rows": 100,
    "error": null
@@ -852,9 +852,9 @@
   {
    "q": 85,
    "engine": "spark",
-   "best": 30.784,
+   "best": 25.041,
    "all": [
-    30.784
+    25.041
    ],
    "rows": 64,
    "error": null
@@ -862,9 +862,9 @@
   {
    "q": 86,
    "engine": "spark",
-   "best": 13.788,
+   "best": 13.533,
    "all": [
-    13.788
+    13.533
    ],
    "rows": 100,
    "error": null
@@ -872,9 +872,9 @@
   {
    "q": 87,
    "engine": "spark",
-   "best": 48.512,
+   "best": 44.247,
    "all": [
-    48.512
+    44.247
    ],
    "rows": 1,
    "error": null
@@ -882,9 +882,9 @@
   {
    "q": 88,
    "engine": "spark",
-   "best": 20.164,
+   "best": 18.19,
    "all": [
-    20.164
+    18.19
    ],
    "rows": 1,
    "error": null
@@ -892,9 +892,9 @@
   {
    "q": 89,
    "engine": "spark",
-   "best": 34.16,
+   "best": 31.609,
    "all": [
-    34.16
+    31.609
    ],
    "rows": 100,
    "error": null
@@ -902,9 +902,9 @@
   {
    "q": 90,
    "engine": "spark",
-   "best": 10.033,
+   "best": 9.1,
    "all": [
-    10.033
+    9.1
    ],
    "rows": 1,
    "error": null
@@ -912,9 +912,9 @@
   {
    "q": 91,
    "engine": "spark",
-   "best": 6.691,
+   "best": 6.736,
    "all": [
-    6.691
+    6.736
    ],
    "rows": 42,
    "error": null
@@ -922,9 +922,9 @@
   {
    "q": 92,
    "engine": "spark",
-   "best": 19.653,
+   "best": 20.875,
    "all": [
-    19.653
+    20.875
    ],
    "rows": 1,
    "error": null
@@ -932,9 +932,9 @@
   {
    "q": 93,
    "engine": "spark",
-   "best": 154.752,
+   "best": 123.618,
    "all": [
-    154.752
+    123.618
    ],
    "rows": 100,
    "error": null
@@ -942,9 +942,9 @@
   {
    "q": 94,
    "engine": "spark",
-   "best": 39.408,
+   "best": 34.306,
    "all": [
-    39.408
+    34.306
    ],
    "rows": 1,
    "error": null
@@ -952,9 +952,9 @@
   {
    "q": 95,
    "engine": "spark",
-   "best": 51.264,
+   "best": 39.681,
    "all": [
-    51.264
+    39.681
    ],
    "rows": 1,
    "error": null
@@ -962,9 +962,9 @@
   {
    "q": 96,
    "engine": "spark",
-   "best": 15.489,
+   "best": 15.755,
    "all": [
-    15.489
+    15.755
    ],
    "rows": 1,
    "error": null
@@ -972,9 +972,9 @@
   {
    "q": 97,
    "engine": "spark",
-   "best": 65.847,
+   "best": 60.722,
    "all": [
-    65.847
+    60.722
    ],
    "rows": 1,
    "error": null
@@ -982,9 +982,9 @@
   {
    "q": 98,
    "engine": "spark",
-   "best": 30.35,
+   "best": 38.268,
    "all": [
-    30.35
+    38.268
    ],
    "rows": 45075,
    "error": null
@@ -992,9 +992,9 @@
   {
    "q": 99,
    "engine": "spark",
-   "best": 22.189,
+   "best": 19.067,
    "all": [
-    22.189
+    19.067
    ],
    "rows": 100,
    "error": null
@@ -1002,7 +1002,7 @@
  ],
  "extra": {},
  "misc": [
-  "SPARK_VERSION=3.5.8-amzn-0 WAREHOUSE=s3://amzn-s3-demo-bucket/tpcds/warehouse_sf1000 REPEAT=1 TIMEOUT=1800"
+  "SPARK_VERSION=4.1.3-amzn-0-amzn.20261107222304 WAREHOUSE=s3://amzn-s3-demo-bucket/tpcds/warehouse_sf1000 REPEAT=1 TIMEOUT=1800"
  ],
  "repeat": "1",
  "timeout": "1800"

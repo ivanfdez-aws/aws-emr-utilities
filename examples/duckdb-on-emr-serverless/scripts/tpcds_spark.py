@@ -1,6 +1,6 @@
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: MIT-0
-"""TPC-DS on Spark SQL (EMR Serverless 7.14, Spark 3.5.8): the same 99 queries on the same Iceberg tables.
+"""TPC-DS on Spark SQL (EMR Serverless emr-spark-8.2.0, Spark 4.1.3): the same 99 queries on the same Iceberg tables.
 
 Same methodology as tpcds_duckdb.py: REPEAT timed runs per query (best reported), execute + collect,
 per-run timeout via job-group cancellation, one TPCDS_Q={...} line per query.

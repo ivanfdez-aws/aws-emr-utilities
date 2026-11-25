@@ -10,8 +10,6 @@ Labels:
   duckdb-sf<N>-d<V>       DuckDB 2.0.1, one V-vCPU driver, 99 queries
   spark-sf<N>-<V>         Spark SQL, V total vCPUs as 4-vCPU executors, 99 queries
   txticeberg-sf<N>        Spark: AWS public text files -> Apache Iceberg tables (SF1000)
-  stats-sf<N>             Spark: Iceberg table statistics (tuned Spark, step 1)
-  sparkT-sf<N>-<V>        tuned Spark SQL: Iceberg statistics + cost-based optimizer
 Options (env): REPEAT (default 2), TIMEOUT (default 900), ONLY ("1,2,3")
 
 Usage: python3 run-tpcds.py gen-sf1 iceberg-sf1 duckdb-sf1-d8 spark-sf1-8
@@ -34,7 +32,7 @@ def _required(name):
     if not v:
         raise SystemExit(f"Set {name} (see README.md, section 'Configure')")
     return v
-APP_ID = _required("EMR_APP_ID")                 # EMR Serverless application id (Spark, emr-7.14.0, x86_64)
+APP_ID = _required("EMR_APP_ID")                 # EMR Serverless application id (Spark, emr-spark-8.2.0, x86_64)
 EXEC_ROLE = _required("EXEC_ROLE_ARN")           # job runtime role ARN (S3 read/write, logs)
 BUCKET = _required("S3_BUCKET").rstrip("/")      # s3://<bucket> holding envs/, scripts/, tpcds/, logs/
 REGION = os.environ.get("AWS_REGION", "us-east-1")
@@ -45,7 +43,9 @@ ENV_ARCHIVE = f"{BUCKET}/envs/duckdb201_env.tar.gz#environment"
 EXT_ARCHIVE = f"{BUCKET}/envs/tpcds_ext.tar.gz#tpcds_ext"
 QUERIES = f"{BUCKET}/tpcds/queries-duckdb.json"
 QUERIES_SPARK = f"{BUCKET}/tpcds/queries-spark.json"
-ICEBERG_JARS = "--conf spark.jars=/usr/share/aws/iceberg/lib/iceberg-spark3-runtime.jar"
+# emr-spark-8.2.0 already puts /usr/share/aws/iceberg/lib/iceberg-spark4-runtime.jar on the driver and executor
+# extraClassPath, so no spark.jars is passed.
+ICEBERG_JARS = ""
 DUCK = {4: ("14g", 16, None), 8: ("30g", 32, "100g"), 16: ("60g", 64, "100g"), 32: ("109g", 120, "200g")}
 REPEAT = os.environ.get("REPEAT", "2")
 TIMEOUT = os.environ.get("TIMEOUT", "900")
@@ -70,10 +70,11 @@ def duck_params(script, args, vcpu, disk=None):
                             "sparkSubmitParameters": " ".join(f"--conf {c}" for c in conf)}}
 
 
-def spark_params(script, args, total_vcpu, extra=()):
+def spark_params(script, args, total_vcpu, extra=(), disk="100g"):
     ex = max(total_vcpu // 4, 1)
+    # executor local disk; spark.emr-serverless.executor.disk is the EMR Serverless key (default 20 GB)
     conf = [f"spark.executor.instances={ex}", "spark.dynamicAllocation.enabled=false",
-            "spark.executor.cores=4", "spark.executor.memory=14g", "spark.executor.disk=100g",
+            "spark.executor.cores=4", "spark.executor.memory=14g", f"spark.emr-serverless.executor.disk={disk}",
             "spark.driver.cores=2", "spark.driver.memory=8g", *extra]
     return {"sparkSubmit": {"entryPoint": f"{BUCKET}/scripts/{script}", "entryPointArguments": args,
                             "sparkSubmitParameters": ICEBERG_JARS + " " + " ".join(f"--conf {c}" for c in conf)}}
@@ -96,20 +97,12 @@ def job_for(label):
     if m:
         sf = m.group(1)
         return spark_params("tpcds_text_to_iceberg.py", [f"{BUCKET}/tpcds/text/sf{sf}", warehouse(sf), f"{BUCKET}/tpcds/tpcds-schema.json"], 128)
-    m = re.fullmatch(r"stats-sf(\d+)", label)  # tuned mode, step 1: Iceberg table statistics for Spark
-    if m:
-        return spark_params("tpcds_spark_stats.py", [warehouse(m.group(1))], 32)
-    m = re.fullmatch(r"sparkT-sf(\d+)-(\d+)", label)  # tuned Spark: Iceberg stats + cost-based optimizer
-    if m:
-        sf, v = m.group(1), int(m.group(2))
-        return spark_params("tpcds_spark.py", [warehouse(sf), QUERIES_SPARK, REPEAT, TIMEOUT, ONLY], v,
-                            extra=("spark.sql.cbo.enabled=true", "spark.sql.cbo.joinReorder.enabled=true"))
     m = re.fullmatch(r"spark-sf(\d+)-(\d+)", label)
     if m:
         sf, v = m.group(1), int(m.group(2))
-        # at SF1000 shuffle/spill can exceed the default 20 GB executor disk, so give executors the 200 GB maximum
-        extra = ("spark.emr-serverless.executor.disk=200g",) if int(sf) >= 1000 else ()
-        return spark_params("tpcds_spark.py", [warehouse(sf), QUERIES_SPARK, REPEAT, TIMEOUT, ONLY], v, extra=extra)
+        # executor disk: 100 GB at SF10/SF100 (the 20 GB default ran out on SF100 Q40), 200 GB maximum at SF1000
+        return spark_params("tpcds_spark.py", [warehouse(sf), QUERIES_SPARK, REPEAT, TIMEOUT, ONLY], v,
+                            disk="200g" if int(sf) >= 1000 else "100g")
     raise SystemExit(f"unknown label {label}")
 
 

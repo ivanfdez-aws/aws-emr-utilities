@@ -2,19 +2,19 @@
  "label": "spark-sf100-32",
  "state": "SUCCESS",
  "details": "",
- "duration_s": 923,
+ "duration_s": 915,
  "billed": {
-  "vCPUHour": 8.461,
-  "memoryGBHour": 34.101,
-  "storageGBHour": 0.0
+  "vCPUHour": 8.381,
+  "memoryGBHour": 33.779,
+  "storageGBHour": 157.444
  },
  "queries": [
   {
    "q": 1,
    "engine": "spark",
-   "best": 19.46,
+   "best": 16.603,
    "all": [
-    19.46
+    16.603
    ],
    "rows": 100,
    "error": null
@@ -22,9 +22,9 @@
   {
    "q": 2,
    "engine": "spark",
-   "best": 14.441,
+   "best": 13.171,
    "all": [
-    14.441
+    13.171
    ],
    "rows": 2513,
    "error": null
@@ -32,9 +32,9 @@
   {
    "q": 3,
    "engine": "spark",
-   "best": 5.59,
+   "best": 9.868,
    "all": [
-    5.59
+    9.868
    ],
    "rows": 100,
    "error": null
@@ -42,9 +42,9 @@
   {
    "q": 4,
    "engine": "spark",
-   "best": 32.263,
+   "best": 32.943,
    "all": [
-    32.263
+    32.943
    ],
    "rows": 100,
    "error": null
@@ -52,9 +52,9 @@
   {
    "q": 5,
    "engine": "spark",
-   "best": 15.008,
+   "best": 14.767,
    "all": [
-    15.008
+    14.767
    ],
    "rows": 100,
    "error": null
@@ -62,9 +62,9 @@
   {
    "q": 6,
    "engine": "spark",
-   "best": 8.609,
+   "best": 8.647,
    "all": [
-    8.609
+    8.647
    ],
    "rows": 52,
    "error": null
@@ -72,9 +72,9 @@
   {
    "q": 7,
    "engine": "spark",
-   "best": 7.855,
+   "best": 7.767,
    "all": [
-    7.855
+    7.767
    ],
    "rows": 100,
    "error": null
@@ -82,9 +82,9 @@
   {
    "q": 8,
    "engine": "spark",
-   "best": 5.817,
+   "best": 5.647,
    "all": [
-    5.817
+    5.647
    ],
    "rows": 10,
    "error": null
@@ -92,9 +92,9 @@
   {
    "q": 9,
    "engine": "spark",
-   "best": 4.963,
+   "best": 5.242,
    "all": [
-    4.963
+    5.242
    ],
    "rows": 1,
    "error": null
@@ -102,9 +102,9 @@
   {
    "q": 10,
    "engine": "spark",
-   "best": 6.883,
+   "best": 6.882,
    "all": [
-    6.883
+    6.882
    ],
    "rows": 100,
    "error": null
@@ -112,9 +112,9 @@
   {
    "q": 11,
    "engine": "spark",
-   "best": 14.745,
+   "best": 15.16,
    "all": [
-    14.745
+    15.16
    ],
    "rows": 100,
    "error": null
@@ -122,9 +122,9 @@
   {
    "q": 12,
    "engine": "spark",
-   "best": 3.042,
+   "best": 3.298,
    "all": [
-    3.042
+    3.298
    ],
    "rows": 100,
    "error": null
@@ -132,9 +132,9 @@
   {
    "q": 13,
    "engine": "spark",
-   "best": 9.495,
+   "best": 9.534,
    "all": [
-    9.495
+    9.534
    ],
    "rows": 1,
    "error": null
@@ -142,9 +142,9 @@
   {
    "q": 14,
    "engine": "spark",
-   "best": 23.582,
+   "best": 23.865,
    "all": [
-    23.582
+    23.865
    ],
    "rows": 100,
    "error": null
@@ -152,9 +152,9 @@
   {
    "q": 15,
    "engine": "spark",
-   "best": 8.442,
+   "best": 9.741,
    "all": [
-    8.442
+    9.741
    ],
    "rows": 100,
    "error": null
@@ -162,9 +162,9 @@
   {
    "q": 16,
    "engine": "spark",
-   "best": 8.034,
+   "best": 7.623,
    "all": [
-    8.034
+    7.623
    ],
    "rows": 1,
    "error": null
@@ -172,9 +172,9 @@
   {
    "q": 17,
    "engine": "spark",
-   "best": 10.657,
+   "best": 11.121,
    "all": [
-    10.657
+    11.121
    ],
    "rows": 37,
    "error": null
@@ -182,9 +182,9 @@
   {
    "q": 18,
    "engine": "spark",
-   "best": 6.878,
+   "best": 6.743,
    "all": [
-    6.878
+    6.743
    ],
    "rows": 100,
    "error": null
@@ -192,9 +192,9 @@
   {
    "q": 19,
    "engine": "spark",
-   "best": 6.192,
+   "best": 6.117,
    "all": [
-    6.192
+    6.117
    ],
    "rows": 100,
    "error": null
@@ -202,9 +202,9 @@
   {
    "q": 20,
    "engine": "spark",
-   "best": 2.861,
+   "best": 2.938,
    "all": [
-    2.861
+    2.938
    ],
    "rows": 100,
    "error": null
@@ -212,9 +212,9 @@
   {
    "q": 21,
    "engine": "spark",
-   "best": 5.408,
+   "best": 5.292,
    "all": [
-    5.408
+    5.292
    ],
    "rows": 100,
    "error": null
@@ -222,9 +222,9 @@
   {
    "q": 22,
    "engine": "spark",
-   "best": 6.551,
+   "best": 6.195,
    "all": [
-    6.551
+    6.195
    ],
    "rows": 100,
    "error": null
@@ -232,9 +232,9 @@
   {
    "q": 23,
    "engine": "spark",
-   "best": 26.241,
+   "best": 25.311,
    "all": [
-    26.241
+    25.311
    ],
    "rows": 100,
    "error": null
@@ -242,9 +242,9 @@
   {
    "q": 24,
    "engine": "spark",
-   "best": 11.891,
+   "best": 14.708,
    "all": [
-    11.891
+    14.708
    ],
    "rows": 40,
    "error": null
@@ -252,9 +252,9 @@
   {
    "q": 25,
    "engine": "spark",
-   "best": 11.097,
+   "best": 10.964,
    "all": [
-    11.097
+    10.964
    ],
    "rows": 14,
    "error": null
@@ -262,9 +262,9 @@
   {
    "q": 26,
    "engine": "spark",
-   "best": 5.417,
+   "best": 4.926,
    "all": [
-    5.417
+    4.926
    ],
    "rows": 100,
    "error": null
@@ -272,9 +272,9 @@
   {
    "q": 27,
    "engine": "spark",
-   "best": 15.385,
+   "best": 15.521,
    "all": [
-    15.385
+    15.521
    ],
    "rows": 100,
    "error": null
@@ -282,9 +282,9 @@
   {
    "q": 28,
    "engine": "spark",
-   "best": 9.54,
+   "best": 9.548,
    "all": [
-    9.54
+    9.548
    ],
    "rows": 1,
    "error": null
@@ -292,9 +292,9 @@
   {
    "q": 29,
    "engine": "spark",
-   "best": 11.165,
+   "best": 9.931,
    "all": [
-    11.165
+    9.931
    ],
    "rows": 62,
    "error": null
@@ -302,9 +302,9 @@
   {
    "q": 30,
    "engine": "spark",
-   "best": 4.674,
+   "best": 4.557,
    "all": [
-    4.674
+    4.557
    ],
    "rows": 100,
    "error": null
@@ -312,9 +312,9 @@
   {
    "q": 31,
    "engine": "spark",
-   "best": 12.149,
+   "best": 13.542,
    "all": [
-    12.149
+    13.542
    ],
    "rows": 275,
    "error": null
@@ -322,9 +322,9 @@
   {
    "q": 32,
    "engine": "spark",
-   "best": 3.123,
+   "best": 3.335,
    "all": [
-    3.123
+    3.335
    ],
    "rows": 1,
    "error": null
@@ -332,9 +332,9 @@
   {
    "q": 33,
    "engine": "spark",
-   "best": 7.148,
+   "best": 8.355,
    "all": [
-    7.148
+    8.355
    ],
    "rows": 100,
    "error": null
@@ -342,9 +342,9 @@
   {
    "q": 34,
    "engine": "spark",
-   "best": 5.109,
+   "best": 5.407,
    "all": [
-    5.109
+    5.407
    ],
    "rows": 5774,
    "error": null
@@ -352,9 +352,9 @@
   {
    "q": 35,
    "engine": "spark",
-   "best": 6.216,
+   "best": 6.316,
    "all": [
-    6.216
+    6.316
    ],
    "rows": 100,
    "error": null
@@ -362,9 +362,9 @@
   {
    "q": 36,
    "engine": "spark",
-   "best": 5.778,
+   "best": 5.643,
    "all": [
-    5.778
+    5.643
    ],
    "rows": 100,
    "error": null
@@ -372,9 +372,9 @@
   {
    "q": 37,
    "engine": "spark",
-   "best": 4.478,
+   "best": 4.74,
    "all": [
-    4.478
+    4.74
    ],
    "rows": 3,
    "error": null
@@ -382,9 +382,9 @@
   {
    "q": 38,
    "engine": "spark",
-   "best": 8.805,
+   "best": 9.094,
    "all": [
-    8.805
+    9.094
    ],
    "rows": 1,
    "error": null
@@ -392,9 +392,9 @@
   {
    "q": 39,
    "engine": "spark",
-   "best": 7.604,
+   "best": 7.753,
    "all": [
-    7.604
+    7.753
    ],
    "rows": 7367,
    "error": null
@@ -402,9 +402,9 @@
   {
    "q": 40,
    "engine": "spark",
-   "best": 8.942,
+   "best": 8.767,
    "all": [
-    8.942
+    8.767
    ],
    "rows": 100,
    "error": null
@@ -412,9 +412,9 @@
   {
    "q": 41,
    "engine": "spark",
-   "best": 1.602,
+   "best": 1.49,
    "all": [
-    1.602
+    1.49
    ],
    "rows": 100,
    "error": null
@@ -422,9 +422,9 @@
   {
    "q": 42,
    "engine": "spark",
-   "best": 3.844,
+   "best": 3.06,
    "all": [
-    3.844
+    3.06
    ],
    "rows": 11,
    "error": null
@@ -432,9 +432,9 @@
   {
    "q": 43,
    "engine": "spark",
-   "best": 3.931,
+   "best": 3.964,
    "all": [
-    3.931
+    3.964
    ],
    "rows": 100,
    "error": null
@@ -442,9 +442,9 @@
   {
    "q": 44,
    "engine": "spark",
-   "best": 4.698,
+   "best": 4.495,
    "all": [
-    4.698
+    4.495
    ],
    "rows": 10,
    "error": null
@@ -452,9 +452,9 @@
   {
    "q": 45,
    "engine": "spark",
-   "best": 6.158,
+   "best": 5.106,
    "all": [
-    6.158
+    5.106
    ],
    "rows": 100,
    "error": null
@@ -462,9 +462,9 @@
   {
    "q": 46,
    "engine": "spark",
-   "best": 7.694,
+   "best": 8.801,
    "all": [
-    7.694
+    8.801
    ],
    "rows": 100,
    "error": null
@@ -472,9 +472,9 @@
   {
    "q": 47,
    "engine": "spark",
-   "best": 9.712,
+   "best": 9.194,
    "all": [
-    9.712
+    9.194
    ],
    "rows": 100,
    "error": null
@@ -482,9 +482,9 @@
   {
    "q": 48,
    "engine": "spark",
-   "best": 8.532,
+   "best": 8.458,
    "all": [
-    8.532
+    8.458
    ],
    "rows": 1,
    "error": null
@@ -492,9 +492,9 @@
   {
    "q": 49,
    "engine": "spark",
-   "best": 11.995,
+   "best": 11.677,
    "all": [
-    11.995
+    11.677
    ],
    "rows": 100,
    "error": null
@@ -502,9 +502,9 @@
   {
    "q": 50,
    "engine": "spark",
-   "best": 15.133,
+   "best": 16.207,
    "all": [
-    15.133
+    16.207
    ],
    "rows": 100,
    "error": null
@@ -512,9 +512,9 @@
   {
    "q": 51,
    "engine": "spark",
-   "best": 15.995,
+   "best": 16.561,
    "all": [
-    15.995
+    16.561
    ],
    "rows": 100,
    "error": null
@@ -522,9 +522,9 @@
   {
    "q": 52,
    "engine": "spark",
-   "best": 3.43,
+   "best": 3.477,
    "all": [
-    3.43
+    3.477
    ],
    "rows": 100,
    "error": null
@@ -532,9 +532,9 @@
   {
    "q": 53,
    "engine": "spark",
-   "best": 4.745,
+   "best": 4.659,
    "all": [
-    4.745
+    4.659
    ],
    "rows": 100,
    "error": null
@@ -542,9 +542,9 @@
   {
    "q": 54,
    "engine": "spark",
-   "best": 8.655,
+   "best": 8.501,
    "all": [
-    8.655
+    8.501
    ],
    "rows": 100,
    "error": null
@@ -552,9 +552,9 @@
   {
    "q": 55,
    "engine": "spark",
-   "best": 3.16,
+   "best": 2.911,
    "all": [
-    3.16
+    2.911
    ],
    "rows": 100,
    "error": null
@@ -562,9 +562,9 @@
   {
    "q": 56,
    "engine": "spark",
-   "best": 6.601,
+   "best": 6.775,
    "all": [
-    6.601
+    6.775
    ],
    "rows": 100,
    "error": null
@@ -572,9 +572,9 @@
   {
    "q": 57,
    "engine": "spark",
-   "best": 5.886,
+   "best": 6.257,
    "all": [
-    5.886
+    6.257
    ],
    "rows": 100,
    "error": null
@@ -582,9 +582,9 @@
   {
    "q": 58,
    "engine": "spark",
-   "best": 6.566,
+   "best": 6.737,
    "all": [
-    6.566
+    6.737
    ],
    "rows": 100,
    "error": null
@@ -592,9 +592,9 @@
   {
    "q": 59,
    "engine": "spark",
-   "best": 8.112,
+   "best": 8.635,
    "all": [
-    8.112
+    8.635
    ],
    "rows": 100,
    "error": null
@@ -602,9 +602,9 @@
   {
    "q": 60,
    "engine": "spark",
-   "best": 6.808,
+   "best": 8.407,
    "all": [
-    6.808
+    8.407
    ],
    "rows": 100,
    "error": null
@@ -612,9 +612,9 @@
   {
    "q": 61,
    "engine": "spark",
-   "best": 8.516,
+   "best": 9.102,
    "all": [
-    8.516
+    9.102
    ],
    "rows": 1,
    "error": null
@@ -622,9 +622,9 @@
   {
    "q": 62,
    "engine": "spark",
-   "best": 3.247,
+   "best": 2.745,
    "all": [
-    3.247
+    2.745
    ],
    "rows": 100,
    "error": null
@@ -632,9 +632,9 @@
   {
    "q": 63,
    "engine": "spark",
-   "best": 4.084,
+   "best": 4.099,
    "all": [
-    4.084
+    4.099
    ],
    "rows": 100,
    "error": null
@@ -642,9 +642,9 @@
   {
    "q": 64,
    "engine": "spark",
-   "best": 18.288,
+   "best": 16.901,
    "all": [
-    18.288
+    16.901
    ],
    "rows": 466,
    "error": null
@@ -652,9 +652,9 @@
   {
    "q": 65,
    "engine": "spark",
-   "best": 6.718,
+   "best": 7.054,
    "all": [
-    6.718
+    7.054
    ],
    "rows": 100,
    "error": null
@@ -662,9 +662,9 @@
   {
    "q": 66,
    "engine": "spark",
-   "best": 7.598,
+   "best": 7.378,
    "all": [
-    7.598
+    7.378
    ],
    "rows": 15,
    "error": null
@@ -672,9 +672,9 @@
   {
    "q": 67,
    "engine": "spark",
-   "best": 40.562,
+   "best": 38.892,
    "all": [
-    40.562
+    38.892
    ],
    "rows": 100,
    "error": null
@@ -682,9 +682,9 @@
   {
    "q": 68,
    "engine": "spark",
-   "best": 9.269,
+   "best": 9.301,
    "all": [
-    9.269
+    9.301
    ],
    "rows": 100,
    "error": null
@@ -692,9 +692,9 @@
   {
    "q": 69,
    "engine": "spark",
-   "best": 5.501,
+   "best": 6.038,
    "all": [
-    5.501
+    6.038
    ],
    "rows": 100,
    "error": null
@@ -702,9 +702,9 @@
   {
    "q": 70,
    "engine": "spark",
-   "best": 5.764,
+   "best": 5.659,
    "all": [
-    5.764
+    5.659
    ],
    "rows": 20,
    "error": null
@@ -712,9 +712,9 @@
   {
    "q": 71,
    "engine": "spark",
-   "best": 7.096,
+   "best": 6.964,
    "all": [
-    7.096
+    6.964
    ],
    "rows": 59606,
    "error": null
@@ -722,9 +722,9 @@
   {
    "q": 72,
    "engine": "spark",
-   "best": 16.692,
+   "best": 17.862,
    "all": [
-    16.692
+    17.862
    ],
    "rows": 100,
    "error": null
@@ -732,9 +732,9 @@
   {
    "q": 73,
    "engine": "spark",
-   "best": 4.311,
+   "best": 4.692,
    "all": [
-    4.311
+    4.692
    ],
    "rows": 111,
    "error": null
@@ -742,9 +742,9 @@
   {
    "q": 74,
    "engine": "spark",
-   "best": 10.486,
+   "best": 10.986,
    "all": [
-    10.486
+    10.986
    ],
    "rows": 100,
    "error": null
@@ -752,9 +752,9 @@
   {
    "q": 75,
    "engine": "spark",
-   "best": 21.362,
+   "best": 20.569,
    "all": [
-    21.362
+    20.569
    ],
    "rows": 100,
    "error": null
@@ -762,9 +762,9 @@
   {
    "q": 76,
    "engine": "spark",
-   "best": 5.581,
+   "best": 5.756,
    "all": [
-    5.581
+    5.756
    ],
    "rows": 100,
    "error": null
@@ -772,9 +772,9 @@
   {
    "q": 77,
    "engine": "spark",
-   "best": 8.138,
+   "best": 7.524,
    "all": [
-    8.138
+    7.524
    ],
    "rows": 100,
    "error": null
@@ -782,9 +782,9 @@
   {
    "q": 78,
    "engine": "spark",
-   "best": 25.249,
+   "best": 25.223,
    "all": [
-    25.249
+    25.223
    ],
    "rows": 100,
    "error": null
@@ -792,9 +792,9 @@
   {
    "q": 79,
    "engine": "spark",
-   "best": 7.133,
+   "best": 7.018,
    "all": [
-    7.133
+    7.018
    ],
    "rows": 100,
    "error": null
@@ -802,9 +802,9 @@
   {
    "q": 80,
    "engine": "spark",
-   "best": 16.688,
+   "best": 15.376,
    "all": [
-    16.688
+    15.376
    ],
    "rows": 100,
    "error": null
@@ -812,9 +812,9 @@
   {
    "q": 81,
    "engine": "spark",
-   "best": 4.443,
+   "best": 4.32,
    "all": [
-    4.443
+    4.32
    ],
    "rows": 100,
    "error": null
@@ -822,9 +822,9 @@
   {
    "q": 82,
    "engine": "spark",
-   "best": 5.494,
+   "best": 5.815,
    "all": [
-    5.494
+    5.815
    ],
    "rows": 14,
    "error": null
@@ -832,9 +832,9 @@
   {
    "q": 83,
    "engine": "spark",
-   "best": 4.024,
+   "best": 3.597,
    "all": [
-    4.024
+    3.597
    ],
    "rows": 100,
    "error": null
@@ -842,9 +842,9 @@
   {
    "q": 84,
    "engine": "spark",
-   "best": 3.587,
+   "best": 3.574,
    "all": [
-    3.587
+    3.574
    ],
    "rows": 100,
    "error": null
@@ -852,9 +852,9 @@
   {
    "q": 85,
    "engine": "spark",
-   "best": 6.759,
+   "best": 6.972,
    "all": [
-    6.759
+    6.972
    ],
    "rows": 62,
    "error": null
@@ -862,9 +862,9 @@
   {
    "q": 86,
    "engine": "spark",
-   "best": 2.138,
+   "best": 2.318,
    "all": [
-    2.138
+    2.318
    ],
    "rows": 100,
    "error": null
@@ -872,9 +872,9 @@
   {
    "q": 87,
    "engine": "spark",
-   "best": 9.066,
+   "best": 7.713,
    "all": [
-    9.066
+    7.713
    ],
    "rows": 1,
    "error": null
@@ -882,9 +882,9 @@
   {
    "q": 88,
    "engine": "spark",
-   "best": 4.541,
+   "best": 4.342,
    "all": [
-    4.541
+    4.342
    ],
    "rows": 1,
    "error": null
@@ -892,9 +892,9 @@
   {
    "q": 89,
    "engine": "spark",
-   "best": 4.746,
+   "best": 4.824,
    "all": [
-    4.746
+    4.824
    ],
    "rows": 100,
    "error": null
@@ -902,9 +902,9 @@
   {
    "q": 90,
    "engine": "spark",
-   "best": 1.556,
+   "best": 1.414,
    "all": [
-    1.556
+    1.414
    ],
    "rows": 1,
    "error": null
@@ -912,9 +912,9 @@
   {
    "q": 91,
    "engine": "spark",
-   "best": 2.832,
+   "best": 2.554,
    "all": [
-    2.832
+    2.554
    ],
    "rows": 30,
    "error": null
@@ -922,9 +922,9 @@
   {
    "q": 92,
    "engine": "spark",
-   "best": 2.085,
+   "best": 2.191,
    "all": [
-    2.085
+    2.191
    ],
    "rows": 1,
    "error": null
@@ -932,9 +932,9 @@
   {
    "q": 93,
    "engine": "spark",
-   "best": 7.843,
+   "best": 7.759,
    "all": [
-    7.843
+    7.759
    ],
    "rows": 100,
    "error": null
@@ -942,9 +942,9 @@
   {
    "q": 94,
    "engine": "spark",
-   "best": 4.681,
+   "best": 4.385,
    "all": [
-    4.681
+    4.385
    ],
    "rows": 1,
    "error": null
@@ -952,9 +952,9 @@
   {
    "q": 95,
    "engine": "spark",
-   "best": 9.482,
+   "best": 6.094,
    "all": [
-    9.482
+    6.094
    ],
    "rows": 1,
    "error": null
@@ -962,9 +962,9 @@
   {
    "q": 96,
    "engine": "spark",
-   "best": 2.344,
+   "best": 2.131,
    "all": [
-    2.344
+    2.131
    ],
    "rows": 1,
    "error": null
@@ -972,9 +972,9 @@
   {
    "q": 97,
    "engine": "spark",
-   "best": 9.032,
+   "best": 8.144,
    "all": [
-    9.032
+    8.144
    ],
    "rows": 1,
    "error": null
@@ -982,9 +982,9 @@
   {
    "q": 98,
    "engine": "spark",
-   "best": 4.669,
+   "best": 4.589,
    "all": [
-    4.669
+    4.589
    ],
    "rows": 30579,
    "error": null
@@ -992,9 +992,9 @@
   {
    "q": 99,
    "engine": "spark",
-   "best": 3.876,
+   "best": 3.29,
    "all": [
-    3.876
+    3.29
    ],
    "rows": 100,
    "error": null
@@ -1002,7 +1002,7 @@
  ],
  "extra": {},
  "misc": [
-  "SPARK_VERSION=3.5.8-amzn-0 WAREHOUSE=s3://amzn-s3-demo-bucket/tpcds/warehouse_sf100 REPEAT=1 TIMEOUT=900"
+  "SPARK_VERSION=4.1.3-amzn-0-amzn.20261107222304 WAREHOUSE=s3://amzn-s3-demo-bucket/tpcds/warehouse_sf100 REPEAT=1 TIMEOUT=900"
  ],
  "repeat": "1",
  "timeout": "900"

@@ -1,6 +1,6 @@
 # TPC-DS on Amazon EMR Serverless: DuckDB 2.0.1 (single node) vs Spark SQL
 
-Companion code for the AWS Big Data Blog post *"Run single-node DuckDB SQL on Apache Iceberg with Amazon EMR Serverless."*
+Companion code for the AWS Big Data Blog post *"Run DuckDB SQL on Apache Iceberg with Amazon EMR Serverless."*
 
 This folder contains the scripts and the raw results behind a TPC-DS comparison of DuckDB and Spark SQL
 on Amazon EMR Serverless, reading Apache Iceberg tables on Amazon S3.
@@ -36,7 +36,7 @@ cat > role-policy.json <<'EOT'
 EOT
 aws iam create-role --role-name tpcds-job-runtime-role --assume-role-policy-document file://trust.json
 aws iam put-role-policy --role-name tpcds-job-runtime-role --policy-name bucket-access --policy-document file://role-policy.json
-aws emr-serverless create-application --name tpcds --type SPARK --release-label emr-7.14.0 --architecture X86_64
+aws emr-serverless create-application --name tpcds --type SPARK --release-label emr-spark-8.2.0 --architecture X86_64
 ```
 
 The last command prints the application id. The role ARN is `arn:aws:iam::<your-account-id>:role/tpcds-job-runtime-role`.
@@ -44,11 +44,11 @@ Wait a few seconds before using a new role: IAM needs a moment to propagate it.
 
 ## Quick start
 
-A first run at SF10 (about 10 GB) on 8 vCPU for both engines. In my runs the DuckDB job took about 14 minutes and
-the Spark SQL job about 19 minutes, and each job cost well under 1 USD at list rates.
+A first run at SF10 (about 10 GB) on 8 vCPU for both engines. In the published runs the DuckDB job took about 14 minutes
+and the Spark SQL job about 18 minutes, and each job cost well under 1 USD at list rates.
 
 ```
-export EMR_APP_ID=<application-id>            # EMR Serverless application: Spark, emr-7.14.0, x86_64
+export EMR_APP_ID=<application-id>            # EMR Serverless application: Spark, emr-spark-8.2.0, x86_64
 export EXEC_ROLE_ARN=<job-runtime-role-arn>   # read/write on the bucket, write on logs/
 export S3_BUCKET=s3://<your-bucket>
 export OUTDIR=../my-results                   # relative to scripts/; keeps the published results/ untouched
@@ -82,7 +82,7 @@ completed all 99 queries at every size (see "Query completion").
 `scripts/analyze_results.py` needs the full set of runs, so use it on the provided `results/` folder.
 
 What you should see at the end: both jobs finish with all 99 queries completed and the same row counts. In the
-published runs the 99 queries added up to 139.8 s for DuckDB 2.0.1 and 544.0 s for Spark SQL, with DuckDB faster on
+published runs the 99 queries added up to 142.3 s for DuckDB 2.0.1 and 515.3 s for Spark SQL, with DuckDB faster on
 all 99. The runs were not isolated (see "Notes and limits"), so expect your times to differ somewhat from the
 ones in `results/`.
 
@@ -92,11 +92,15 @@ ones in `results/`.
 - Engine A: DuckDB 2.0.1, a patch release of the DuckDB 2.0 long-term support (LTS) line, on one EMR Serverless
   driver of 8, 16 or 32 vCPU, no executors. Official signed extensions: httpfs f71cfdb4bf, aws 9ba41b09a0,
   avro 4176191c96, iceberg f979b5b28a (engine source_id 8d78114e90).
-- Engine B: Spark SQL 3.5.8 on the same application, with the same total vCPUs as 4-vCPU executors.
+- Engine B: Spark SQL on Apache Spark 4.1.3 on the same application, with the same total vCPUs as 4-vCPU executors.
 - Same Apache Iceberg tables for both engines (Hadoop catalog on S3, Parquet with zstd, unpartitioned).
-- EMR Serverless release emr-7.14.0, x86_64, Python 3.11, us-east-1. The Spark SQL runs took place between 27 and
-  29 October 2026, the DuckDB 2.0.1 runs on 21 and 22 November 2026 (UTC), on the same application, tables and job
-  settings.
+- Catalog: both engines resolved each table by its Iceberg metadata path on Amazon S3 (a Hadoop-style catalog), not
+  through the AWS Glue Data Catalog. DuckDB calls `iceberg_scan` on the table path and Spark SQL uses an Iceberg
+  Hadoop catalog over the same warehouse path. The catalog only affects how an engine looks up a table's metadata,
+  not how it scans the data, so it does not change the comparison. For production use, go through the AWS Glue Data
+  Catalog as the blog post shows.
+- EMR Serverless release emr-spark-8.2.0 (Apache Spark 4.1.3), x86_64, Python 3.11, us-east-1. All 14 benchmark jobs
+  ran in one run on 25 November 2026, between 11:42 and 13:30 UTC, on one application with the same tables.
 - Both engines with default settings. DuckDB reads the tables with `iceberg_scan`.
 - Scope: DuckDB compared with Spark SQL on Amazon EMR Serverless only. This is not a comparison with Amazon Athena,
   Amazon Redshift or other engines, and the results should not be read as one.
@@ -113,8 +117,7 @@ scripts/
   tpcds_text_to_iceberg.py  Spark: pipe-delimited text (AWS public dataset, SF1000) -> Iceberg tables
   tpcds_duckdb.py           DuckDB runner, default settings
   tpcds_spark.py            Spark SQL runner
-  tpcds_spark_stats.py      Spark: Iceberg table statistics, used by the tuned Spark runs
-  analyze_results.py        recomputes the tables below from results/ (--repeat adds the SF100 repeat comparison)
+  analyze_results.py        recomputes the table in "Results" from results/
   tpcds-schema.json         table schemas used for the text-to-Iceberg conversion
 results/                    per-query timings and billed resources for every job (see "Results files")
 ```
@@ -125,7 +128,7 @@ Set these before running `run-tpcds.py`:
 
 | Variable | Meaning |
 |---|---|
-| `EMR_APP_ID` | EMR Serverless application (Spark, emr-7.14.0, x86_64) |
+| `EMR_APP_ID` | EMR Serverless application (Spark, emr-spark-8.2.0, x86_64) |
 | `EXEC_ROLE_ARN` | job runtime role: read/write on the bucket, write on `logs/` |
 | `S3_BUCKET` | `s3://<your-bucket>` that holds `envs/`, `scripts/`, `tpcds/` and `logs/` |
 | `AWS_REGION` | default `us-east-1` |
@@ -163,8 +166,7 @@ Set these before running `run-tpcds.py`:
    REPEAT=2 python3 scripts/run-tpcds.py duckdb-sf10-d8 duckdb-sf10-d16 duckdb-sf10-d32 spark-sf10-8 spark-sf10-16 spark-sf10-32
    REPEAT=1 TIMEOUT=1800 python3 scripts/run-tpcds.py duckdb-sf1000-d32 spark-sf1000-32
    ```
-5. `python3 scripts/analyze_results.py results` prints the summary below. Add `--repeat` to also compare the SF100
-   DuckDB runs with the repeat in `results/repeat/`.
+5. `python3 scripts/analyze_results.py results` prints the summary below.
 
 ## Job configuration
 
@@ -173,10 +175,12 @@ Set these before running `run-tpcds.py`:
 | DuckDB, 8 vCPU | `spark.driver.cores=8`, `spark.driver.memory=30g`, `spark.emr-serverless.driver.disk=100g` |
 | DuckDB, 16 vCPU | `spark.driver.cores=16`, `spark.driver.memory=60g`, `spark.emr-serverless.driver.disk=100g` |
 | DuckDB, 32 vCPU | `spark.driver.cores=32`, `spark.driver.memory=109g`, `spark.emr-serverless.driver.disk=200g` |
-| Spark SQL | 2, 4 or 8 executors of 4 vCPU and 14 GB for the 8, 16 and 32 vCPU budgets, dynamic allocation off, 2 vCPU / 8 GB driver (not counted in the budget); SF1000 executors use `spark.emr-serverless.executor.disk=200g` |
+| Spark SQL | 2, 4 or 8 executors of 4 vCPU and 14 GB for the 8, 16 and 32 vCPU budgets, dynamic allocation off, 2 vCPU / 8 GB driver (not counted in the budget); `spark.emr-serverless.executor.disk=100g` at SF10 and SF100, `=200g` at SF1000 |
 
-The `run-tpcds.py` file also sets `spark.executor.disk=100g` for Spark, which is not an EMR Serverless setting, so
-the Spark executors ran with the default disk size at SF10 and SF100.
+The Spark executor disk is an infrastructure setting, not an engine setting. With the 20 GB default, an executor ran
+out of disk on Q40 at SF100 with 8 vCPU, so `run-tpcds.py` gives each executor 100 GB at SF10 and SF100 and the
+200 GB maximum at SF1000. EMR Serverless bills disk above 20 GB per worker: in the published runs that is 2.3% to
+2.7% of each SF10 and SF100 Spark SQL job's cost and 5.9% at SF1000.
 
 DuckDB spills to the driver's local disk, and its temporary-directory limit follows the disk size (by default 90% of
 the available disk space). This is why the disk setting matters: with too little disk, queries that spill a lot can
@@ -190,29 +194,29 @@ by that of the DuckDB job (approximate list rates, only meaningful as a ratio).
 
 ```
 scale   vCPU  DuckDB s   Spark s  ratio   n   cost
-SF10       8     139.8     544.0   3.89  99   1.59
-SF10      16     116.0     399.4   3.44  99   1.14
-SF10      32     105.7     335.5   3.17  99   0.99
-SF100      8     575.7    2210.7   3.84  99   3.03
-SF100     16     364.5    1302.1   3.57  99   2.15
-SF100     32     245.3     860.3   3.51  99   1.76
-SF1000    32    1938.8    6285.2   3.24  99   3.10
+SF10       8     142.3     515.3   3.62  99   1.52
+SF10      16     118.2     384.3   3.25  99   1.12
+SF10      32     108.5     316.9   2.92  99   0.94
+SF100      8     576.9    1999.1   3.47  99   2.83
+SF100     16     363.6    1254.8   3.45  99   2.14
+SF100     32     244.4     858.1   3.51  99   1.84
+SF1000    32    1884.4    6368.5   3.38  99   3.28
 ```
 
 "n" is the number of queries compared. DuckDB was faster on 99 of the 99 queries at SF10 (all three sizes) and at
-SF100 on 32 vCPU, on 97 at SF100 on 8 vCPU, on 96 at SF100 on 16 vCPU and on 98 at SF1000. The queries where Spark
-SQL was as fast or faster are Q8, Q9 and Q88, by under 3 s each.
+SF100 on 32 vCPU, on 96 at SF100 on 8 vCPU, on 97 at SF100 on 16 vCPU and on 97 at SF1000. The queries where Spark
+SQL was as fast or faster are Q9, Q88 and Q95 at SF100 (by 0.1 to 3.5 s) and Q67 and Q88 at SF1000 (by 7.0 and 1.4 s).
 
 The cost ratio is lower than the speed ratio because of time that is billed but not timed. `tpcds_duckdb.py` opens a
 fresh connection for every run, and loading the extensions and creating the 24 table views happens before the timer
-starts. At SF10 each DuckDB job ran for 763 to 850 s, and its timed runs added up to 211 to 280 s, so about 550 to
-570 s per job was billed but not timed. Each Spark SQL job spent about 60 s outside the timer, which is the worker
-start-up both engines have. The other 490 to 510 s on DuckDB is the per-run setup: about 2.5 s for each of the 198
+starts. At SF10 each DuckDB job ran for 767 to 847 s, and its timed runs added up to 217 to 285 s, so about 545 to
+562 s per job was billed but not timed. Each Spark SQL job spent 32 to 35 s outside the timer, which is the worker
+start-up both engines have. The other 512 to 527 s on DuckDB is the per-run setup: about 2.6 s for each of the 198
 runs (99 queries, two runs each). A normal job does setup once, so this overhead comes from the benchmark method
 rather than from running DuckDB on EMR Serverless. The SF10 queries are short, so this setup is about two thirds of each DuckDB job,
-and the cost ratio drops to 1.59, 1.14 and 0.99 on 8, 16 and 32 vCPU. On 32 vCPU at SF10 the two engines cost about
-the same. At SF100 and SF1000 there is one run per query and the queries run longer, so the untimed time (about 300 s
-per job at SF100, 390 s at SF1000) weighs less and the cost ratios are 1.76 to 3.10. The extra disk DuckDB used is
+and the cost ratio drops to 1.52, 1.12 and 0.94 on 8, 16 and 32 vCPU. On 32 vCPU at SF10 the Spark SQL job cost about
+6% less. At SF100 and SF1000 there is one run per query and the queries run longer, so the untimed time (about 290 to
+300 s per job at SF100, 340 s at SF1000) weighs less and the cost ratios are 1.84 to 3.28. The extra disk DuckDB used is
 under 1.5% of its job cost. Reusing one connection would cut this overhead, so the cost ratios are conservative for
 DuckDB.
 
@@ -222,48 +226,35 @@ The two are complementary: pick the engine per workload.
 
 ### Query completion
 
-DuckDB 2.0.1 completed all 99 queries in all seven configurations, and its row counts match Spark SQL for every query.
-Spark SQL completed all 99 queries at every size, except in the tuned Spark runs (below).
-
-Each DuckDB 2.0.1 job in the table ran once, and none of the seven was killed. A repeat of the three SF100 DuckDB
-jobs, with the same application, tables and job settings, also completed all 99 queries with identical row counts.
-Its total query time differed from the runs in the table by -0.5% to +3.8% (575.7 to 578.9 s on 8 vCPU, 364.5 to
-362.5 s on 16 vCPU, 245.3 to 254.6 s on 32 vCPU). The repeat files are in `results/repeat/`. If a job ends early (for example a driver killed
-for exceeding memory, exit code 137), set `ONLY` to the query numbers that are missing and retry. Set `OUTDIR`
-explicitly for retries so they do not overwrite earlier results.
-
-### Tuned Spark (not used as the baseline)
-
-Spark SQL with Iceberg column statistics (`stats-sf*`) and `spark.sql.cbo.enabled` /
-`spark.sql.cbo.joinReorder.enabled` (`results/tuned/sparkT-*`) was slower overall than the default Spark run.
-Over the queries that completed in both runs, with the median per-query time as in "Results", suite totals were
-33 to 50% higher at SF10 and 8 to 30% higher at SF100. Q72 failed at every size, and Q85 failed (8 and 16 vCPU) or
-timed out (32 vCPU) at SF100. The default Spark run is the baseline in all comparisons, and the tuned Spark results
-are for reference only. Run them with `stats-sf<N>` and then `sparkT-sf<N>-<V>` (same sizes as `spark-sf<N>-<V>`).
+DuckDB 2.0.1 and Spark SQL completed all 99 queries in all seven configurations, and their row counts match for every
+query. Each of the 14 jobs ran once and finished all 99 queries in that run, with no errors, timeouts or reruns.
+If a job ends early (for example a driver killed for exceeding memory, exit code 137), set `ONLY` to the query numbers
+that are missing and retry. Set `OUTDIR` explicitly for retries so they do not overwrite earlier results.
 
 ## Results files
 
 Each file in `results/` is one job: `label`, `state`, `duration_s`, `billed` (vCPU-hours, memory GB-hours, storage
 GB-hours), `misc` (engine version and settings echoed by the job) and `queries` (one record per query:
 `q`, `best`, `all` timed runs in seconds, `rows`, `error`). Job run ids and account details were removed, and the
-bucket name is replaced by `amzn-s3-demo-bucket`, in every results file. The `misc` line of the DuckDB 2.0.1 files
-also shows `SETTINGS=default` and the effective `memory_limit`, `max_temp_directory_size` and `threads`, which the
-runner used for those jobs echoed before the first query.
+bucket name is replaced by `amzn-s3-demo-bucket`, in every results file.
 
 | Folder | Content |
 |---|---|
-| `results/*.json` | DuckDB 2.0.1 and Spark SQL runs for SF10 and SF100, and the Iceberg conversion |
-| `results/sf1000/` | DuckDB 2.0.1 and Spark SQL runs for SF1000 and the text-to-Iceberg conversion |
-| `results/tuned/` | tuned Spark and Spark statistics |
-| `results/repeat/` | a repeat of the three SF100 DuckDB 2.0.1 jobs; total query time differed from `results/duckdb-sf100-d*.json` by -0.5% to +3.8%, with identical row counts |
+| `results/*.json` | DuckDB 2.0.1 and Spark SQL runs for SF10 and SF100 on emr-spark-8.2.0 |
+| `results/sf1000/` | DuckDB 2.0.1 and Spark SQL runs for SF1000 on emr-spark-8.2.0 |
+
+The folder holds only the 14 benchmark jobs. The data-generation and Iceberg-conversion jobs (`gen-sf<N>`,
+`iceberg-sf<N>`, `txticeberg-sf1000`) were not part of the published run: the benchmark jobs read Iceberg tables
+created beforehand with these scripts.
 
 ## Notes and limits
 
-- The runs were not isolated: several jobs ran at the same time on separate workers reading the same bucket.
+- The runs were not isolated: all 14 jobs were submitted at once and ran at the same time on separate workers
+  reading the same bucket.
 - Time covers query execution plus fetching the results. Job submission and worker start-up are not included, and
   neither is opening the fresh DuckDB connection for each run (see Results).
-- DuckDB 2.0.1 was run about three weeks after Spark SQL. Spark SQL was run once; both used the same tables,
-  application and job settings.
+- Each engine and configuration was run once; DuckDB 2.0.1 and Spark SQL ran in the same run, on the same
+  application and tables.
 - SF10 and SF100 data come from DuckDB's dsdgen. SF1000 comes from the AWS public dataset, so row counts match the
   TPC-DS specification for the eight largest tables but the files were not produced by the same generator.
 - Governance: this example reads Iceberg tables from a Hadoop catalog on S3, and DuckDB reads the table files directly.
