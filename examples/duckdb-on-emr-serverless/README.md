@@ -5,7 +5,7 @@ Companion code for the AWS Big Data Blog post *"Run single-node DuckDB SQL on Ap
 This folder contains the scripts and the raw results behind a TPC-DS comparison of DuckDB and Spark SQL
 on Amazon EMR Serverless, reading Apache Iceberg tables on Amazon S3.
 
-These are unaudited results from a modified TPC-DS setup. They cannot be compared with published TPC-DS results.
+NOTE: The benchmark tests in this folder are derived from the TPC-DS benchmark, and the results are not comparable to published TPC-DS results, because these tests don't comply with the TPC-DS specification.
 
 This is sample code, for non-production usage. You should work with your security and legal teams to meet your organizational security, regulatory and compliance requirements before deployment.
 
@@ -208,7 +208,8 @@ fresh connection for every run, and loading the extensions and creating the 24 t
 starts. At SF10 each DuckDB job ran for 763 to 850 s, and its timed runs added up to 211 to 280 s, so about 550 to
 570 s per job was billed but not timed. Each Spark SQL job spent about 60 s outside the timer, which is the worker
 start-up both engines have. The other 490 to 510 s on DuckDB is the per-run setup: about 2.5 s for each of the 198
-runs (99 queries, two runs each). The SF10 queries are short, so this setup is about two thirds of each DuckDB job,
+runs (99 queries, two runs each). A normal job does setup once, so this overhead comes from the benchmark method
+rather than from running DuckDB on EMR Serverless. The SF10 queries are short, so this setup is about two thirds of each DuckDB job,
 and the cost ratio drops to 1.59, 1.14 and 0.99 on 8, 16 and 32 vCPU. On 32 vCPU at SF10 the two engines cost about
 the same. At SF100 and SF1000 there is one run per query and the queries run longer, so the untimed time (about 300 s
 per job at SF100, 390 s at SF1000) weighs less and the cost ratios are 1.76 to 3.10. The extra disk DuckDB used is
